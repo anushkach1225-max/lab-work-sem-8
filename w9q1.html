@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Two Frame Forms</title>
+
+    <style>
+        body { margin: 0; font-family: Arial; }
+
+        .container { display: flex; height: 100vh; }
+
+        .left {
+            width: 30%;
+            background: #444;
+            color: white;
+            padding: 20px;
+        }
+
+        .left a {
+            display: block;
+            margin: 10px 0;
+            color: white;
+            text-decoration: none;
+        }
+
+        .left a:hover { text-decoration: underline; }
+
+        .right {
+            width: 70%;
+            padding: 20./px;
+            background: #f2f2f2;
+        }
+
+        input, textarea {
+            margin: 5px 0;
+            padding: 5px;
+            width: 200px;
+        }
+
+        button {
+            padding: 5px 10px;
+            margin-top: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT FRAME -->
+    <div class="left">
+        <h3>Forms</h3>
+        <a href="#" onclick="showForm('f1')">Login Form</a>
+        <a href="#" onclick="showForm('f2')">Feedback Form</a>
+    </div>
+
+    <!-- RIGHT FRAME -->
+    <div class="right">
+
+        <!-- FORM 1 -->
+        <div id="f1">
+            <h2>Login</h2>
+            Username:<br>
+            <input type="text" id="user"><br>
+            Password:<br>
+            <input type="password" id="pass"><br>
+            <button onclick="validate1()">Submit</button>
+        </div>
+
+        <!-- FORM 2 -->
+        <div id="f2" style="display:none;">
+            <h2>Feedback</h2>
+            Name:<br>
+            <input type="text" id="name"><br>
+            Comment:<br>
+            <textarea id="comment"></textarea><br>
+            <button onclick="validate2()">Submit</button>
+        </div>
+
+        <!-- RESULT -->
+        <div id="result"></div>
+
+    </div>
+
+</div>
+
+<script>
+function showForm(id){
+    document.getElementById("f1").style.display="none";
+    document.getElementById("f2").style.display="none";
+    document.getElementById(id).style.display="block";
+}
+
+function validate1(){
+    let u = document.getElementById("user").value;
+    let p = document.getElementById("pass").value;
+
+    if(u=="" || p=="")
+        document.getElementById("result").innerHTML="Fill all fields!";
+    else
+        document.getElementById("result").innerHTML="Login Successful!";
+}
+
+function validate2(){
+    let n = document.getElementById("name").value;
+    let c = document.getElementById("comment").value;
+
+    if(n=="" || c=="")
+        document.getElementById("result").innerHTML="Fill all fields!";
+    else
+        document.getElementById("result").innerHTML="Feedback Submitted!";
+}
+</script>
+
+</body>
+</html>

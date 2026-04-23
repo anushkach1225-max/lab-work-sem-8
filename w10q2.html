@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calendar</title>
+</head>
+
+<body>
+
+<h2>Calendar</h2>
+
+<button onclick="showCalendar()">Enter Year</button>
+
+<pre id="output"></pre>
+
+<script>
+function showCalendar() {
+    let year = prompt("Enter year:");
+
+    let result = "";
+
+    for (let month = 0; month < 12; month++) {
+
+        let firstDay = new Date(year, month, 1).getDay();
+        let daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        let months = ["Jan","Feb","Mar","Apr","May","Jun",
+                      "Jul","Aug","Sep","Oct","Nov","Dec"];
+
+        result += "\n\n" + months[month] + " " + year + "\n";
+        result += "Su Mo Tu We Th Fr Sa\n";
+
+        // spaces before first day
+        for (let i = 0; i < firstDay; i++) {
+            result += "   ";
+        }
+
+        // print days
+        for (let day = 1; day <= daysInMonth; day++) {
+            result += (day < 10 ? " " + day : day) + " ";
+
+            if ((day + firstDay) % 7 === 0) {
+                result += "\n";
+            }
+        }
+    }
+
+    document.getElementById("output").textContent = result;
+}
+</script>
+
+</body>
+</html>

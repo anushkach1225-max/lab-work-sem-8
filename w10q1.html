@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Enhancements</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        img {
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.5s;
+        }
+
+        /* Animation class */
+        .animate {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        select {
+            margin-top: 20px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Web Page Enhancements</h2>
+
+<!-- ✅ Rollover Effect -->
+<img src="img1.jpg"
+     onmouseover="this.src='img2.jpg'"
+     onmouseout="this.src='img1.jpg'"
+     onclick="animateImage(this)">
+
+<br><br>
+
+<!-- ✅ Pull-down Menu -->
+<select onchange="goPage(this.value)">
+    <option value="">Select Page</option>
+    <option value="https://www.google.com">Google</option>
+    <option value="https://www.wikipedia.org">Wikipedia</option>
+    <option value="https://www.youtube.com">YouTube</option>
+</select>
+
+<script>
+/* ✅ Animation on click */
+function animateImage(img){
+    img.classList.add("animate");
+
+    setTimeout(() => {
+        img.classList.remove("animate");
+    }, 500);
+}
+
+/* ✅ Dropdown navigation */
+function goPage(url){
+    if(url != ""){
+        window.location.href = url;
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animated Gradient Clock</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+            font-family: 'Courier New', monospace;
+        }
+
+        .clock-wrapper {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+        }
+
+        #clock {
+            font-size: 90px;
+            font-weight: bold;
+            letter-spacing: 6px;
+
+            background: linear-gradient(90deg, #00f2ff, #ff00c8, #00ff88, #ffea00);
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation: move 6s linear infinite;
+        }
+
+        /* 🔥 Animated AM/PM */
+        #ampm {
+            font-size: 35px;
+            font-weight: bold;
+
+            background: linear-gradient(90deg, #ff00c8, #00f2ff);
+            background-size: 200%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+           animation: ampmMove 4s linear infinite;
+        }
+
+        @keyframes move {
+            0% { background-position: 0%; }
+            100% { background-position: 300%; }
+        }
+
+        @keyframes ampmMove {
+            0% { background-position: 0%; }
+            100% { background-position: 200%; }
+        }
+
+        /* ✨ Glow + breathing effect */
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="clock-wrapper">
+    <div id="clock"></div>
+    <div id="ampm"></div>
+</div>
+
+<script>
+function showTime() {
+    let now = new Date();
+
+    let h = now.getHours();
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+
+    let ampm = h >= 12 ? "PM" : "AM";
+
+    h = h % 12;
+    h = h ? h : 12;
+
+    h = h < 10 ? "0" + h : h;
+    m = m < 10 ? "0" + m : m;
+    s = s < 10 ? "0" + s : s;
+
+    let colon = (s % 2 === 0) ? ":" : " ";
+
+    let time = h + colon + m + colon + s;
+
+    document.getElementById("clock").innerHTML = time;
+    document.getElementById("ampm").innerHTML = ampm;
+}
+
+setInterval(showTime, 1000);
+showTime();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Day of Week</title>
+</head>
+<body>
+
+<h2>Find Day from Date</h2>
+
+<button onclick="findDay()">Enter Date</button>
+
+<p id="result"></p>
+
+<script>
+function findDay() {
+    let date = prompt("Enter a date (1–31):");
+
+    // Convert to number
+    date = parseInt(date);
+
+    // Check valid input
+    if (date < 1 || date > 31 || isNaN(date)) {
+        document.getElementById("result").innerHTML = "Invalid input!";
+        return;
+    }
+
+    // Create a Date (example: July 2024)
+    let d = new Date(2024, 6, date);  
+    // Month is 0-based → 6 = July
+
+    // Get day of week
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    
+    let dayName = days[d.getDay()];
+
+    document.getElementById("result").innerHTML = "Day is: " + dayName;
+}
+</script>
+
+</body>
+</html>

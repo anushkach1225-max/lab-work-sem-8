@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animation</title>
+        <style>
+            body{
+                font-family:Arial, Helvetica, sans-serif;
+                text-align: center;
+                margin-top: 40px;
+            }
+            img{
+                width:200px;
+                cursor:pointer;
+                transition:transform 0.5s;
+            }
+            .animate{
+                transform:rotate(360deg) scale(1.2);
+            }
+            select{
+                margin-top:20px;
+                padding:5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>animation effect</h2>
+        <img src=""img1,.jpg
+        onmouseover="this.src='img2.jpg'"
+        onmouseout="this.src='img1.jpg'"
+        onmouseclick="animImg(this)">
+        <br><br>
+
+        <select onchange="goPg(this.value)">
+            <option value=""> Select</option>
+            <option value="https://www.google.com">GOOGLE</option>
+            <option value="https://www.youtube.come">YOU8TUBE</option>
+            <option value="https://www.wikipedia.org">WIKIPEDIA</option>
+        </select>
+
+        <script>
+            function animImg(img){
+                img.classList.add("animate");
+                setTimeOut(()=>{
+                    img.classLIST.REMOVE("animate");
+                },500);
+            }
+
+            function goPg(url){
+                if(url!=""){
+                    window.location.href=url;
+                }
+            }
+        </script>
+    </body>
+</html>

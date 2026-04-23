@@ -1,0 +1,17 @@
+book{
+    display:block;
+    font-family: Arial;
+    margin:20px;
+}
+title{
+    color:blue;
+    font-size: 20px;
+    font-weight:bold;
+}
+author{
+    color:green;
+    display:block;
+}
+price{
+    color:red;
+}

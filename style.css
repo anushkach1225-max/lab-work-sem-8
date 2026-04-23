@@ -1,0 +1,62 @@
+/* .tryingClass {
+    color: red;
+}
+button { 
+    background-color: blue; 
+    color:pink;
+}
+#myID {
+    color: green;
+}
+#hey {
+    color:rgb(22, 14, 128);
+    background-color: pink;
+    text-align: right;
+    text-decoration: green underline dotted;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 40px;
+    text-transform: capitalize;
+}
+a{ 
+    text-decoration: brown wavy underline;
+    font-family: 'Times New Roman', Times, serif;
+}  */
+/* *{
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+#navbar{
+    background-color: #0f1111;
+    height: 40px;
+}
+button{
+
+    background-color: #4e7f7f;
+    color: white;
+
+}
+#logo{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    color: orange;
+}
+a{
+margin-right: 200px;
+text-decoration: none;
+} */
+
+div{
+    width: 200px;
+    height: 100px;
+    padding: 40px;
+    margin: 25px;
+    display: inline-block;
+}
+
+#box2{
+    visibility: hidden;
+}
